@@ -20,6 +20,16 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('mayoritas');
             $table->string('deskripsi');
+            $table->string('sisakamar');
+            $table->string('totalkamar');
+            $table->string('listrik');
+            $table->string('air');
+            $table->string('wifi');
+            $table->string('bed');
+            $table->string('ac');
+            $table->string('kamarmandi');
+            $table->string('kloset');
+            $table->string('satpam');
             $table->string('image');
             $table->timestamps();
         });

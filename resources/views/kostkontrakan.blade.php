@@ -88,30 +88,100 @@
                 @csrf
                 <div class="modal-body">
 
-                  <div class="form-group">
-                    <label for="namaMitra">Nama Kost atau Kontrakan</label>
-                    <input type="text" class="form-control" id="namaMitra" placeholder="Nama Kost atau Kontrakan" name="name">
-                  </div>
+                <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="namaMitra">Nama Kost atau Kontrakan</label>
+                        <input type="text" class="form-control" id="namaMitra" placeholder="Nama Kost atau Kontrakan" name="name">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Lokasi</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
+                      </div>
+                    </div>
+                  </div>         
                   
-                  <div class="form-group">
-                    <label for="jumlahHarga">Harga</label>
-                    <input type="text" class="form-control" id="jumlahHarga1" placeholder="Harga" name="harga">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="namaLokasi">Lokasi</label>
-                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="namaLokasi">Mayoritas</label>
-                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Mayoritas Penghuni" name="mayoritas">
-                  </div>
-
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Harga</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="Harga" name="harga">
+                      </div>  
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Mayoritas</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Mayoritas Penghuni" name="mayoritas">
+                      </div>
+                    </div>
+                  </div>                
+                                          
                   <div class="form-group">
                     <label for="inputDeskripsi">Deskripsi</label>
                     <textarea class="form-control" rows="3" placeholder="Deskripsi" name="deskripsi"></textarea>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Listrik</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="Listrik" name="listrik">
+                      </div>  
                     </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">AC</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="AC" name="ac">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Air</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="Air" name="air">
+                      </div>  
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Kamar Mandi</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Kamar Mandi" name="kamarmandi">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">WiFi</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="wifi" name="wifi">
+                      </div>  
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Kloset</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Kloset" name="kloset">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Bed</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="Bed" name="bed">
+                      </div>  
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Satpam Kost</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Satpam Kost" name="satpam">
+                      </div>
+                    </div>
+                  </div>
 
                   <div class="form-group">
                     <label for="exampleInputFile">Masukkan File</label>
