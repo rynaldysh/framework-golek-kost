@@ -35,11 +35,10 @@
                     <tr>
                       <th style="width: 10px">Id</th>
                       <th>Nama Kost atau Kontrakan</th>
-                      <th>Harga</th>
+                      <th>Nama Pengelola</th>
                       <th>Lokasi</th>
                       <th>Mayoritas</th>
-                      <th>Deskripsi</th>
-                      <th>Gambar</th>
+                      <th>Total Kamar</th>
                       <th>Terakhir Update</th>
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -49,11 +48,10 @@
                     <tr>
                       <td>{{$data->id}}</td>
                       <td>{{$data->name}}</td>
-                      <td>{{"Rp.".number_format($data->harga)."/bulan"}}</td>
+                      <td>{{$data->pengelola}}</td>
                       <td>{{$data->lokasi}}</td>
                       <td>{{$data->mayoritas}}</td>
-                      <td>{{$data->deskripsi}}</td>
-                      <td>{{$data->image}}</td>
+                      <td>{{$data->totalkamar}}</td>
                       <td>{{$data->updated_at}}</td>
                       <td>
                         <a href="#">
@@ -76,7 +74,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kost atau Kontrakan</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Tambah Kost atau Kontrakan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -116,7 +114,27 @@
                         <input type="text" class="form-control" id="namaLokasi1" placeholder="Mayoritas Penghuni" name="mayoritas">
                       </div>
                     </div>
-                  </div>                
+                  </div>
+
+                  <div class="form-group">
+                    <label for="namaLokasi">Nama Pengelola</label>
+                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Nama Pengelola" name="pengelola">
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Sisa Kamar</label>
+                        <input type="text" class="form-control" id="jumlahHarga1" placeholder="Sisa Kamar yang tersedia" name="sisakamar">
+                      </div>  
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Total Kamar</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Total Kamar yang disediakan" name="totalkamar">
+                      </div>
+                    </div>
+                  </div> 
                                           
                   <div class="form-group">
                     <label for="inputDeskripsi">Deskripsi</label>

@@ -17,11 +17,12 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('harga');
-            $table->string('lokasi');
-            $table->string('mayoritas');
-            $table->string('deskripsi');
+            $table->string('lokasi');            
+            $table->string('pengelola');
             $table->string('sisakamar');
             $table->string('totalkamar');
+            $table->string('mayoritas');
+            $table->string('deskripsi');
             $table->string('listrik');
             $table->string('air');
             $table->string('wifi');

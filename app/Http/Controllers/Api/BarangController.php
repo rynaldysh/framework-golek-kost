@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Mitra;
+use App\Models\Barang;
 
-class MitraController extends Controller
+class BarangController extends Controller
 {
     public function index(){
         // dd($requset->all());die();
-        $mitra = Mitra::all();
+        $barang = Barang::all();
         return response()->json([
             'success' => 1,
-            'message' => 'Get mitra berhasil',
-            'mitras' => $mitra
+            'message' => 'Get barang berhasil',
+            'barangs' => $barang
         ]);
     }
 }

@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('user', App\Http\Controllers\UserController::class);
-Route::resource('mitra', App\Http\Controllers\MitraController::class);
+Route::resource('barang', App\Http\Controllers\BarangController::class);
 Route::resource('jasaangkut', App\Http\Controllers\JasaAngkutController::class);
 Route::resource('kostkontrakan', App\Http\Controllers\KostKontrakanController::class);

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mitra;
+use App\Models\Barang;
 
-class MitraController extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MitraController extends Controller
      */
     public function index()
     {
-        $user['listUser'] = Mitra::all();
-        return view ('mitra')->with($user);
+        $user['listUser'] = Barang::all();
+        return view ('barang')->with($user);
     }
 
     /**
@@ -36,19 +36,16 @@ class MitraController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // die();
-
         $fileName = '';
         if ($request->image->getClientOriginalName()){
             $file = str_replace(' ' , ' ',$request->image->getClientOriginalName());
             $fileName = date('mYDHs').rand(1,999).'_'.$file;
-            $request->image->storeAs('public/mitra', $fileName);
+            $request->image->storeAs('public/barang', $fileName);
         }
-        $mitra = Mitra::create(array_merge($request->all(), [
+        $barang = Barang::create(array_merge($request->all(), [
             'image' => $fileName
         ]));
-        return redirect('mitra');
+        return redirect('barang');
     }
 
     /**

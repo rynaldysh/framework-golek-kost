@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tabel Mitra</h1>
+            <h1 class="m-0">Tabel Jual Barang</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
         
       <div class="card">
               <div class="card-header">
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Tambah Jasa Angkut</button>
+                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Tambah Barang</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -34,12 +34,8 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">Id</th>
-                      <th>Nama Mitra</th>
-                      <th>Harga</th>
+                      <th>Nama Barang</th>
                       <th>Lokasi</th>
-                      <th>Deskripsi</th>
-                      <th>Kategori</th>
-                      <th>Gambar</th>
                       <th>Terakhir Update</th>
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -49,11 +45,7 @@
                     <tr>
                       <td>{{$data->id}}</td>
                       <td>{{$data->name}}</td>
-                      <td>{{"Rp.".number_format($data->harga)}}</td>
                       <td>{{$data->lokasi}}</td>
-                      <td>{{$data->deskripsi}}</td>
-                      <td>{{$data->category_id}}</td>
-                      <td>{{$data->image}}</td>
                       <td>{{$data->updated_at}}</td>
                       <td>
                         <a href="#">
@@ -84,45 +76,41 @@
               
                   <!-- /.Form tambah jasa angkut -->
 
-              <form method="POST" action="{{ route('mitra.store') }}" role="form" enctype="multipart/form-data">
+              <form method="POST" action="{{ route('barang.store') }}" role="form" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                   <div class="form-group">
-                    <label for="namaMitra">Nama Mitra</label>
-                    <input type="text" class="form-control" id="namaMitra" placeholder="Nama Mitra" name="name">
+                    <label for="namaMitra">Nama Barang</label>
+                    <input type="text" class="form-control" id="namaMitra" placeholder="Nama Barang" name="name">
                   </div>
-                  <div class="form-group">
-                        <label>Pilih Kategori Mitra</label>
-                        <select class="form-control" placeholder="Pilih Kategori Mitra" name="category_id">                        
-                          <option value="">- Pilih -</option>  
-                          <option value="1">Jasa Angkut</option>
-                          <option value="2">Kost atau kontrakan</option>
-                        </select>
-                  </div>
+                  
                   <div class="form-group">
                     <label for="jumlahHarga">Harga</label>
                     <input type="text" class="form-control" id="jumlahHarga1" placeholder="Harga" name="harga">
                   </div>
+
                   <div class="form-group">
                     <label for="namaLokasi">Lokasi</label>
                     <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
                   </div>
+
                   <div class="form-group">
                     <label for="inputDeskripsi">Deskripsi</label>
                     <textarea class="form-control" rows="3" placeholder="Deskripsi" name="deskripsi"></textarea>
-                    </div>
+                  </div>                  
+
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="exampleInputFile">Masukkan File</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <label class="custom-file-label" for="exampleInputFile">Pilih File</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
+                        <span class="input-group-text">Unggah</span>
                       </div>
                     </div>
-                  </div>  
+                  </div> 
                 </div>
                 <!-- /.card-body -->
 

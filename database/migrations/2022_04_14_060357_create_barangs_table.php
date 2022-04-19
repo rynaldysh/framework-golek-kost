@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mitras', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('barangs', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('harga');
             $table->string('lokasi');
             $table->string('deskripsi');
-            $table->Integer('category_id')->unsigned();
             $table->string('image');
             $table->timestamps();
         });
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mitras');
+        Schema::dropIfExists('barangs');
     }
 };

@@ -35,10 +35,7 @@
                     <tr>
                       <th style="width: 10px">Id</th>
                       <th>Nama Jasa Angkut</th>
-                      <th>Harga</th>
                       <th>Lokasi</th>
-                      <th>Deskripsi</th>
-                      <th>Gambar</th>
                       <th>Terakhir Update</th>
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -48,10 +45,7 @@
                     <tr>
                       <td>{{$data->id}}</td>
                       <td>{{$data->name}}</td>
-                      <td>{{"Rp.".number_format($data->harga)}}</td>
                       <td>{{$data->lokasi}}</td>
-                      <td>{{$data->deskripsi}}</td>
-                      <td>{{$data->image}}</td>
                       <td>{{$data->updated_at}}</td>
                       <td>
                         <a href="#">
@@ -94,15 +88,18 @@
                     <label for="jumlahHarga">Harga</label>
                     <input type="text" class="form-control" id="jumlahHarga1" placeholder="Harga" name="harga">
                   </div>
+
                   <div class="form-group">
                     <label for="namaLokasi">Lokasi</label>
                     <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
                   </div>
+
                   <div class="form-group">
                     <label for="inputDeskripsi">Deskripsi</label>
                     <textarea class="form-control" rows="3" placeholder="Deskripsi" name="deskripsi"></textarea>
-                    </div>
-                    <div class="form-group">
+                  </div>                  
+
+                  <div class="form-group">
                     <label for="exampleInputFile">Masukkan File</label>
                     <div class="input-group">
                       <div class="custom-file">

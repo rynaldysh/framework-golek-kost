@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
      return $request->user();
 });
-
+//auth user
 Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
-Route::get('/mitra', [App\Http\Controllers\Api\MitraController::class, 'index']);
+
+Route::get('/barang', [App\Http\Controllers\Api\BarangController::class, 'index']);
 Route::get('/kostkontrakan', [App\Http\Controllers\Api\KostKontrakanController::class, 'index']);
 Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class, 'index']);
+Route::post('/checkout', [App\Http\Controllers\Api\TransaksiController::class, 'store']);
+Route::get('/checkout/user/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'history']);

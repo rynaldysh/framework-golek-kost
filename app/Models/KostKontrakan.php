@@ -9,10 +9,21 @@ class KostKontrakan extends Model
 {
     protected $fillable = [
         'name',
+        'pengelola',
         'harga',
         'mayoritas',
+        'lokasi',
+        'sisakamar',
+        'totalkamar',
         'deskripsi',
-        'lokasi',        
+        'listrik',
+        'air',
+        'wifi',
+        'bed',
+        'ac',
+        'kamarmandi',
+        'kloset',
+        'satpam',
         'image',
     ];
 }
