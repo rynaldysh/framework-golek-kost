@@ -20,7 +20,11 @@ class TransaksiController extends Controller
             'total_item' => 'required',
             'total_harga' => 'required',
             'name' => 'required',
-            'phone' => 'required',
+            'jasa_pengiriman' => 'required',
+            'ongkir' => 'required',
+            'total_transfer' => 'required',
+            'bank' => 'required',
+            'phone' => 'required'
         ]);
 
         if($validasi->fails()){
