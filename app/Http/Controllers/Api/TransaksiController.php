@@ -36,6 +36,7 @@ class TransaksiController extends Controller
         $kode_trx = "INV/PYM/".now()->format('Y-m-d')."/".rand(100, 999);
         $kode_unik = rand(100, 999); 
         $status = "MENUNGGU";
+        $created_att = now();
         $expired_at = now()->addDay();
 
         $dataTransaksi = array_merge($request->all(), [
@@ -43,6 +44,7 @@ class TransaksiController extends Controller
             'kode_trx' => $kode_trx,
             'kode_unik' => $kode_unik,
             'status' => $status,
+            'created_att' => $created_att,
             'expired_at' => $expired_at,
         ]);
 
@@ -75,7 +77,7 @@ class TransaksiController extends Controller
     public function history($id){
         $transaksis = Transaksi::with(['user'])->whereHas('user', function($query) use ($id){
             $query->whereId($id);
-        })->get();
+        })->orderBy("id", "desc")->get();
 
         foreach($transaksis as $transaksi){
             $details = $transaksi->details;
@@ -93,6 +95,25 @@ class TransaksiController extends Controller
         } else {
             $this->error('Transaksi gagal');
         }
+    }
+
+    public function batal($id){
+        $transaksi = Transaksi::where('id', $id)->first();
+        if ($transaksi) {
+            //update data
+
+            $transaksi->update([
+                'status' => "BATAL",
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'transaksi' => $transaksi
+            ]);
+        } else {
+            return $this->error('Gagal memuat transaksi');
+        }        
     }
 
     public function error($pasan){

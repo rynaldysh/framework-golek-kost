@@ -83,6 +83,11 @@
                     <label for="namaMitra">Nama Barang</label>
                     <input type="text" class="form-control" id="namaMitra" placeholder="Nama Barang" name="name">
                   </div>
+
+                  <div class="form-group">
+                    <label for="namaLokasi">Nama Pemilik</label>
+                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Nama" name="pengelola">
+                  </div>
                   
                   <div class="form-group">
                     <label for="jumlahHarga">Harga</label>

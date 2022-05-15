@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('detail_lokasi')->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('metode')->nullable();
+            $table->timeStamp('created_att')->nullable();
             $table->timeStamp('expired_at')->nullable();
             $table->timestamps();
         });
