@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tabel User</h1>
+            <h1 class="m-0">Tabel Pengguna</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,9 +25,6 @@
       <div class="container-fluid">
         
       <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Striped Full Width Table</h3>
-              </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <table class="table table-striped">
@@ -41,7 +38,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($listUser as $data)
+                    @foreach($listUsergeneral as $data)
                     <tr>
                       <td>{{$data->id}}</td>
                       <td>{{$data->name}}</td>

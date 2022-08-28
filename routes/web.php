@@ -20,7 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('user', App\Http\Controllers\UserController::class);
+// Route::resource('user', App\Http\Controllers\UserController::class);
+Route::resource('usergeneral', App\Http\Controllers\UserGeneralController::class);
 Route::resource('barang', App\Http\Controllers\BarangController::class);
 Route::resource('jasaangkut', App\Http\Controllers\JasaAngkutController::class);
 Route::resource('kostkontrakan', App\Http\Controllers\KostKontrakanController::class);
+Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+
+Route::get('/transaksi/batal/{id}', [App\Http\Controllers\TransaksiController::class], 'batal')->name('transaksiBatal');

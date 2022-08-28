@@ -126,28 +126,17 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-cogs"></i>
-              <p>
-                Jual
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('barang.store') }}" class="nav-link">
-                  <i class="far fa-user nav-icon"></i>
-                  <p>Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lain - lain</p>
-                </a>
-              </li>
-              
-            </ul>
+              <a href="{{ route('barang.store') }}" class="nav-link">
+                <i class="nav-icon fas fa-shopping-bag"></i>
+                <p>Barang</p>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a href="{{ route('transaksi.store') }}" class="nav-link">
+                <i class="nav-icon fas fa-file-invoice"></i>
+                <p>Transaksi</p>
+              </a>
           </li>
 
           <li class="nav-item">
@@ -160,8 +149,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('user.index') }}" class="nav-link">
-                  <i class="far fa-user nav-icon"></i>
+                <a href="{{ route('usergeneral.index') }}" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
                   <p>Users</p>
                 </a>
               </li>
