@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kost_kontrakans', function (Blueprint $table) {
+        Schema::create('kostkontrakans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('harga');
+            $table->double('harga');
             $table->string('lokasi');            
             $table->string('pengelola');
-            $table->string('sisakamar');
-            $table->string('totalkamar');
+            $table->double('sisakamar');
+            $table->double('totalkamar');
             $table->string('mayoritas');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('listrik');
             $table->string('air');
             $table->string('wifi');
@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('satpam');
             $table->string('image');
             $table->timestamps();
+
         });
     }
 
@@ -43,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kost_kontrakans');
+        Schema::dropIfExists('kostkontrakans');
     }
 };

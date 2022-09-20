@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\KostKontrakan;
+use App\Models\Kostkontrakan;
 
 class KostKontrakanController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,7 @@ class KostKontrakanController extends Controller
      */
     public function index()
     {
-        $user['listUser'] = KostKontrakan::all();
+        $user['listUser'] = Kostkontrakan::all();
         return view ('kostkontrakan')->with($user);
     }
 

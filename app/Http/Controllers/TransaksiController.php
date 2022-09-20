@@ -7,6 +7,17 @@ use App\Models\Transaksi;
 
 class TransaksiController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $transaksiMenunggu['listMenunggu'] = Transaksi::whereStatus("MENUNGGU")->get();
 

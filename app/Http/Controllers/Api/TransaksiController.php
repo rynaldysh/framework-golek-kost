@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
-use App\Models\User;
+use App\Models\Usergeneral;
 use App\Models\Barang;
 use App\Models\Transaksi;
 use App\Models\TransaksiDetail;
@@ -34,7 +34,7 @@ class TransaksiController extends Controller
 
         $kode_payment = "INV/PYM/".now()->format('Y-m-d')."/".rand(100, 999);
         $kode_trx = "INV/PYM/".now()->format('Y-m-d')."/".rand(100, 999);
-        $kode_unik = rand(100, 999); 
+        $kode_unik = rand(1000000, 9999999); 
         $status = "MENUNGGU";
         $created_att = now();
         $expired_at = now()->addDay();

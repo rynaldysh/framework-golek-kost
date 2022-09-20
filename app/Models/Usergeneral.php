@@ -21,7 +21,8 @@ class Usergeneral extends Authenticatable
         'email',   
         'phone', 
         'password',
-        'name',        
+        'name',
+        // 'image',        
     ];
 
     /**

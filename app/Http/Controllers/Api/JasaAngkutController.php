@@ -10,7 +10,7 @@ class JasaAngkutController extends Controller
 {
     public function index(){
         // dd($requset->all());die();
-        $jasaangkut = JasaAngkut::all();
+        $jasaangkut = Jasaangkut::all();
         return response()->json([
             'success' => 1,
             'message' => 'Get jasa angkut berhasil',

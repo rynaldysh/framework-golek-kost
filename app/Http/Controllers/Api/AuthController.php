@@ -83,6 +83,52 @@ class AuthController extends Controller
 
     }
 
+    // public function updateProfile(Request $request, $id){
+
+    //     $usergeneral = Usergeneral::where('id', $id)->first();
+    //     if ($usergeneral){
+    //         $user->update($request->all());
+    //         return response()->json([
+    //             'success' => 1,
+    //             'message' => 'Profil berhasil di update',
+    //             'usergeneral' => $usergeneral
+    //         ]);
+    //     }
+
+    //     return $this->error('Profil gagal di update');
+    // }
+
+    // public function upload(Request $request, $id){
+    //     $usergeneral = Usergeneral::where('id', $id)->first();
+        
+    //     if ($usergeneral) {
+
+    //         $fileName = "";
+    //         if ($request->image) {
+    //             $image = $request->image->getClientOriginalName();
+    //             $image = str_replace('','', $image);
+    //             $image = date('Hs').rand(1, 999)."_".$image;
+    //             $fileName = $image;
+    //             $request->image->storeAs('public/user', $image);
+    //         } else {
+    //             return $this->error('Foto wajib dikirim');
+    //         }
+
+    //         $user->update([
+    //             'image' => $fileName
+    //         ]);
+    //         if ($usergeneral){
+    //             $user->update($request->all());
+    //             return response()->json([
+    //                 'success' => 1,
+    //                 'message' => 'Profil berhasil di update',
+    //                 'usergeneral' => $usergeneral
+    //             ]);
+    //         }
+    //         return $this->error('Gagal upload foto');
+    //     }          
+    // }
+
     public function error($pasan){
         return response()->json([
             'success' => 0,

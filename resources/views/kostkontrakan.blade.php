@@ -208,9 +208,6 @@
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
                         <label class="custom-file-label" for="exampleInputFile">Pilih File</label>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Unggah</span>
-                      </div>
                     </div>
                   </div>  
                 </div>

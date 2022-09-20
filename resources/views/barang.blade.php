@@ -86,7 +86,7 @@
 
                   <div class="form-group">
                     <label for="namaLokasi">Nama Pemilik</label>
-                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Nama" name="pengelola">
+                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Nama" name="nama_pemilik">
                   </div>
                   
                   <div class="form-group">
@@ -110,9 +110,6 @@
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
                         <label class="custom-file-label" for="exampleInputFile">Pilih File</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Unggah</span>
                       </div>
                     </div>
                   </div> 
