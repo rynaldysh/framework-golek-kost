@@ -76,7 +76,7 @@ class PesanKostkontrakanController extends Controller
             return response()->json([
                 'success' => 1,
                 'message' => 'Pesan kost atau kontrakan Berhasil',
-                'kostkontrakans' => collect($pesankostkontrakans)
+                'pesankostkontrakans' => collect($pesankostkontrakans)
             ]);
         } else {
             $this->error('Pesan kost atau kontrakan Gagal');

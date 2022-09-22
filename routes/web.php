@@ -27,4 +27,7 @@ Route::resource('jasaangkut', App\Http\Controllers\JasaAngkutController::class);
 Route::resource('kostkontrakan', App\Http\Controllers\KostKontrakanController::class);
 Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
 
-Route::get('/transaksi/batal/{id}', [App\Http\Controllers\TransaksiController::class], 'batal')->name('transaksiBatal');
+Route::get('transaksi\batal\{id}', [App\Http\Controllers\TransaksiController::class, 'batal'])->name('transaksiBatal');
+Route::get('transaksi\confirm\{id}', [App\Http\Controllers\TransaksiController::class, 'confirm'])->name('transaksiConfirm');
+Route::get('transaksi\dikirim\{id}', [App\Http\Controllers\TransaksiController::class, 'dikirim'])->name('transaksiDikirim');
+Route::get('transaksi\selesai\{id}', [App\Http\Controllers\TransaksiController::class, 'selesai'])->name('transaksiSelesai');

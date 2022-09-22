@@ -54,7 +54,7 @@
                       <td>
                         <a href="{{ route('transaksiBatal', $data->id) }}" type="button" class="btn btn btn-danger btn-xs">Batal</a>
                         |
-                        <a type="button" class="btn btn btn-success btn-xs">Proses</a>
+                        <a href="{{ route('transaksiConfirm', $data->id) }}"type="button" class="btn btn btn-success btn-xs">Proses</a>
                       </td>
                     </tr>
                    @endforeach
@@ -95,6 +95,7 @@
                       <th>Kode Unik</th>
                       <th>Total</th>
                       <th>Nama Bank</th>
+                      <th>Bukti Transfer</th>
                       <th>Status</th>
                       <th style="width: 150px">Action</th>
                     </tr>
@@ -107,11 +108,23 @@
                       <td>{{$data->kode_unik}}</td>
                       <td>{{"Rp.".number_format($data->total_transfer)}}</td>
                       <td>{{$data->bank}}</td>
+                      <td><a href="#" target="_blank">LIHAT BUKTI TRANSFER</a></td>
                       <td>{{$data->status}}</td>
                       <td>
-                        <button type="button" class="btn btn btn-danger btn-xs">Batal</button>
-                        |
-                        <button type="button" class="btn btn btn-success btn-xs">Proses</button>
+
+                        @if($data->status == "DIKIRIM")
+                        <a href="{{ route('transaksiSelesai', $data->id) }}" type="button" class="btn btn-block btn-primary btn-xs">SELESAI</a>
+
+                        @elseif($data->status == "DIBAYAR")
+                        <a href="{{ route('transaksiConfirm', $data->id) }}" type="button" class="btn btn-block btn-primary btn-xs">PROSES</a>
+
+                        @elseif($data->status == "PROSES")
+                        <a href="{{ route('transaksiDikirim', $data->id) }}" type="button" class="btn btn-block btn-success btn-xs">KIRIM</a>
+
+                        @elseif($data->status == "SELESAI" || $data->status ==  "BATAL")
+                        <a href="#" type="button" class="btn btn-block btn-success btn-xs">DETAIL</a>
+
+                        @endif
                       </td>
                     </tr>
                    @endforeach

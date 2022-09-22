@@ -11,7 +11,7 @@ class Transaksi extends Model
     'kode_trx', 'total_item', 'total_harga', 'kode_unik',
     'status', 'resi', 'kurir', 'name', 'phone', 'detail_lokasi', 'metode',
     'deskripsi', 'created_att', 'expired_at', 'jasa_pengiriman', 'ongkir', 'total_transfer',
-    'bank'];
+    'bank', 'bukti_transfer'];
 
     public function details(){
         return $this->hasMany(TransaksiDetail::class, "transaksi_id", "id");

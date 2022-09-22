@@ -33,10 +33,12 @@ Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class,
 Route::post('/checkout', [App\Http\Controllers\Api\TransaksiController::class, 'store']);
 Route::get('/checkout/user/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'history']);
 Route::post('/checkout/batal/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'batal']);
+Route::post('checkout/upload/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'upload']);
 
 Route::post('/pesanjasa', [App\Http\Controllers\Api\PesanJasaController::class, 'store']);
 Route::get('/pesanjasa/user/{id}', [App\Http\Controllers\Api\PesanJasaController::class, 'history']);
-
+Route::post('/pesanjasa/batal/{id}', [App\Http\Controllers\Api\PesanJasaController::class, 'batal']);
 
 Route::post('/pesankostkontrakan', [App\Http\Controllers\Api\PesanKostkontrakanController::class, 'store']);
 Route::get('/pesankostkontrakan/user/{id}', [App\Http\Controllers\Api\PesanKostkontrakanController::class, 'history']);
+Route::post('/pesankostkontrakan/batal/{id}', [App\Http\Controllers\Api\PesanKostkontrakanController::class, 'batal']);

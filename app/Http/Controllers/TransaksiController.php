@@ -21,7 +21,7 @@ class TransaksiController extends Controller
     public function index(){
         $transaksiMenunggu['listMenunggu'] = Transaksi::whereStatus("MENUNGGU")->get();
 
-        $transaksiSelesai['listSelesai'] = Transaksi::whereStatus("SELESAI")->orWhere("Status", "BATAL")->get();
+        $transaksiSelesai['listSelesai'] = Transaksi::where("Status", "NOT LIKE", "%MENUNGGU%")->get();
 
         return view ('transaksi')->with($transaksiMenunggu)->with($transaksiSelesai);
     }
@@ -30,6 +30,30 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::where('id', $id)->first();
         $transaksi->update([
             'status' => "BATAL",
+        ]);
+        return redirect('transaksi');       
+    }
+
+    public function confirm($id){
+        $transaksi = Transaksi::where('id', $id)->first();
+        $transaksi->update([
+            'status' => "PROSES",
+        ]);
+        return redirect('transaksi');       
+    }
+
+    public function dikirim($id){
+        $transaksi = Transaksi::where('id', $id)->first();
+        $transaksi->update([
+            'status' => "DIKIRIM",
+        ]);
+        return redirect('transaksi');       
+    }
+
+    public function selesai($id){
+        $transaksi = Transaksi::where('id', $id)->first();
+        $transaksi->update([
+            'status' => "SELESAI",
         ]);
         return redirect('transaksi');       
     }

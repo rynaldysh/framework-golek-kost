@@ -98,6 +98,7 @@ class TransaksiController extends Controller
     }
 
     public function batal($id){
+        // $transaksi = Transaksi::with(['details.produk', 'user'])->where('id', $id)->first();
         $transaksi = Transaksi::where('id', $id)->first();
         if ($transaksi) {
             //update data
@@ -114,6 +115,42 @@ class TransaksiController extends Controller
         } else {
             return $this->error('Gagal memuat transaksi');
         }        
+    }
+
+    public function upload(Request $request, $id){
+
+        // $transaksi = Transaksi::with(['details.produk', 'user'])->where('id', $id)->first();
+        $transaksi = Transaksi::where('id', $id)->first();
+        if ($transaksi) {
+            $fileName = '';
+            if ($request->image->getClientOriginalName()){
+                $file = str_replace(' ' , ' ',$request->image->getClientOriginalName());
+                $fileName = date('mYDHs').rand(1,999).'_'.$file;
+                $request->image->storeAs('public/transfer', $fileName);
+            } else {
+            return $this->error('Gagal upload bukti transfer');
+            }
+            //update data
+
+            $transaksi->update([
+                'status' => "DIBAYAR",
+                'bukti_transfer' => $fileName
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'transaksi' => $transaksi
+            ]);
+        } else {
+            return $this->error('Gagal memuat transaksi');
+            }        
+
+        // return response()->json([
+        //     'success' => 1,
+        //     'message' => 'Berhasil upload bukti transfer',
+        //     'image' => $fileName
+        // ]);
     }
 
     public function error($pasan){
