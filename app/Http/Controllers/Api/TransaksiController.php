@@ -134,7 +134,7 @@ class TransaksiController extends Controller
 
             $transaksi->update([
                 'status' => "DIBAYAR",
-                'bukti_transfer' => $fileName
+                'buktiTransfer' => $fileName
             ]);
 
             return response()->json([
@@ -143,7 +143,7 @@ class TransaksiController extends Controller
                 'transaksi' => $transaksi
             ]);
         } else {
-            return $this->error('Gagal memuat transaksi');
+            return $this->error('Gagal upload transaksi');
             }        
 
         // return response()->json([

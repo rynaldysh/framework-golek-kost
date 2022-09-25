@@ -75,7 +75,7 @@ class AuthController extends Controller
             return response()->json([
                 'success' => 1,
                 'message' => 'Selamat datang Register Berhasil',
-                'usergeneral' => $usergeneral
+                'usergenerals' => $usergeneral
             ]);
         }
 

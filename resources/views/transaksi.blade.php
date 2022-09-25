@@ -108,7 +108,7 @@
                       <td>{{$data->kode_unik}}</td>
                       <td>{{"Rp.".number_format($data->total_transfer)}}</td>
                       <td>{{$data->bank}}</td>
-                      <td><a href="#" target="_blank">LIHAT BUKTI TRANSFER</a></td>
+                      <td><a href="{{ asset('storage/transfer/'.$data->buktiTransfer) }}" target="_blank">LIHAT BUKTI TRANSFER</a></td>
                       <td>{{$data->status}}</td>
                       <td>
 
