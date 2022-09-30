@@ -27,6 +27,7 @@ Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'regis
 Route::get('/barang', [App\Http\Controllers\Api\BarangController::class, 'index']);
 Route::post('/barang/uploadbarang', [App\Http\Controllers\Api\BarangController::class, 'uploadbarang']);
 Route::post('/barang/uploadbaranggambar/{id}', [App\Http\Controllers\Api\BarangController::class, 'uploadbaranggambar']);
+Route::get('/barang/history/{id}', [App\Http\Controllers\Api\BarangController::class, 'history']);
 
 Route::get('/kostkontrakan', [App\Http\Controllers\Api\KostKontrakanController::class, 'index']);
 Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class, 'index']);
@@ -34,7 +35,8 @@ Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class,
 Route::post('/checkout', [App\Http\Controllers\Api\TransaksiController::class, 'store']);
 Route::get('/checkout/user/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'history']);
 Route::post('/checkout/batal/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'batal']);
-Route::post('/checkout/upload/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'upload']);
+
+Route::post('/create/upload/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'upload']);
 
 Route::post('/pesanjasa', [App\Http\Controllers\Api\PesanJasaController::class, 'store']);
 Route::get('/pesanjasa/user/{id}', [App\Http\Controllers\Api\PesanJasaController::class, 'history']);

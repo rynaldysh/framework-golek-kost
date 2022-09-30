@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Barang;
 use Validator;
 use Auth;
+use App\Models\Barang;
+use App\Models\Usergeneral;
 
 class BarangController extends Controller
 {
@@ -21,47 +22,53 @@ class BarangController extends Controller
     }
     
     public function uploadbarang(Request $request){
-        //nama, email, password
+        //nama, email, password        
         $validasi = Validator::make($request->all(), [
+            'user_id' => 'required',
             'name' => 'required',
             'harga' => 'required',
             'lokasi' => 'required',
-            'nama_pemilik' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required',
         ]);
+
 
         if($validasi->fails()){
             $val = $validasi->errors()->all();
             return $this->error($val[0]);
         }       
 
-        $barang = Barang::create(array_merge($request->all()));
+        $kode_input_barang = "INV/KIB/".now()->format('Y-m-d')."/".rand(100, 999);
+        $created_att = now();
 
-        if($barang){
+        $dataInputBarang = array_merge($request->all(), [
+            'kode_input_barang' => $kode_input_barang,
+            'created_att' => $created_att,
+        ]);
+
+        \DB::beginTransaction();
+        $barang = Barang::create($dataInputBarang);
+
+        if (!empty($barang)){
+            \DB::commit();
             return response()->json([
                 'success' => 1,
-                'message' => 'Tambah barang berhasil',
-                'barang' => $barang
+                'message' => 'Input barang berhasil',
+                'barang' => collect($barang)
             ]);
+        } else {
+            \DB::rollback();
+            $this->error('Input barang gagal');
         }
 
         return $this->error('Tambah barang gagal');
 
     }
 
-    public function error($pasan){
-        return response()->json([
-            'success' => 0,
-            'message' => $pasan
-        ]);
-    }
-
     public function uploadbaranggambar(Request $request, $id){
 
         // $transaksi = Transaksi::with(['details.produk', 'user'])->where('id', $id)->first();
         $barang = Barang::where('id', $id)->first();
-        if ($transaksi) {
+        if ($barang) {
             $fileName = '';
             if ($request->image->getClientOriginalName()){
                 $file = str_replace(' ' , ' ',$request->image->getClientOriginalName());
@@ -72,7 +79,7 @@ class BarangController extends Controller
             }
             //update data
 
-            $transaksi->update([
+            $barang->update([
                 'image' => $fileName
             ]);
 
@@ -82,8 +89,38 @@ class BarangController extends Controller
                 'barang' => $barang
             ]);
         } else {
-            return $this->error('Gagal memuat transaksi');
+            return $this->error('Gagal memuat gambar');
             }       
+    }
+
+    public function history($id){
+        $barangs = Barang::with(['user'])->whereHas('user', function($query) use ($id){
+            $query->whereId($id);
+        })->orderBy("id", "desc")->get();
+
+        // foreach($barangs as $barang){
+        //     $details = $barang->details;
+        //     foreach($details as $detail){
+        //         $detail->barang; //user?
+        //     }
+        // }
+        
+        if (!empty($barangs)){
+            return response()->json([
+                'success' => 1,
+                'message' => 'Barang berhasil',
+                'barangs' => collect($barangs)
+            ]);
+        } else {
+            $this->error('Barang gagal');
+        }
+    }
+
+    public function error($pasan){
+        return response()->json([
+            'success' => 0,
+            'message' => $pasan
+        ]);
     }
 
 }

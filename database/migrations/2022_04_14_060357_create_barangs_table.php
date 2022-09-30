@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->unsigned();
+            $table->string('kode_input_barang');
             $table->string('name');
             $table->double('harga');
             $table->string('lokasi');
-            $table->string('nama_pemilik');
+            $table->string('nama_pemilik')->nullable();
             $table->longText('deskripsi');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
