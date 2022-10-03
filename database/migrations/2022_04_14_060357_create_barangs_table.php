@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('kode_input_barang');
             $table->string('name');
             $table->double('harga');
+            $table->string('status')->nullable();
             $table->string('lokasi');
             $table->string('nama_pemilik')->nullable();
             $table->longText('deskripsi');
             $table->string('image')->nullable();
+            $table->string('created_att')->nullable();
             $table->timestamps();
         });
     }

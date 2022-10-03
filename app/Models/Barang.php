@@ -16,6 +16,8 @@ class Barang extends Model
         'deskripsi',
         'lokasi',
         'image',
+        'created_att',
+        'status',
     ];
 
     public function user(){

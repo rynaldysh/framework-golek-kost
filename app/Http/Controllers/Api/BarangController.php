@@ -38,10 +38,12 @@ class BarangController extends Controller
         }       
 
         $kode_input_barang = "INV/KIB/".now()->format('Y-m-d')."/".rand(100, 999);
+        $status = "TERSEDIA";
         $created_att = now();
 
         $dataInputBarang = array_merge($request->all(), [
             'kode_input_barang' => $kode_input_barang,
+            'status' => $status,
             'created_att' => $created_att,
         ]);
 
@@ -114,6 +116,25 @@ class BarangController extends Controller
         } else {
             $this->error('Barang gagal');
         }
+    }
+
+    public function terjual($id){
+        $barang = Barang::where('id', $id)->first();
+        if ($barang) {
+            //update data
+
+            $barang->update([
+                'status' => "TERJUAL",
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'barang' => $barang
+            ]);
+        } else {
+            return $this->error('Gagal memuat penjualan barang');
+        }        
     }
 
     public function error($pasan){
