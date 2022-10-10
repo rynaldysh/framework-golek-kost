@@ -37,7 +37,7 @@ class BarangController extends Controller
             return $this->error($val[0]);
         }       
 
-        $kode_input_barang = "INV/KIB/".now()->format('Y-m-d')."/".rand(100, 999);
+        $kode_input_barang = "CRT/KIB/".now()->format('Y-m-d')."/".rand(100, 999);
         $status = "TERSEDIA";
         $created_att = now();
 

@@ -110,8 +110,13 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="namaLokasi">Mayoritas</label>
-                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Mayoritas Penghuni" name="mayoritas">
+                        <label>Mayoritas</label>
+                          <select class="form-control" name="mayoritas">
+                            <option >- Pilih -</option>
+                            <option >Mahasiswa</option>
+                            <option >Pegawai</option>
+                            <option >Campuran</option>                          
+                        </select>
                       </div>
                     </div>
                   </div>

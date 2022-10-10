@@ -27,12 +27,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+<div class="wrapper">  
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -41,12 +36,6 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
 
@@ -54,7 +43,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-5">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/logo_golekost_v3_woperusahaan.png" alt="test" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -63,28 +52,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -109,19 +76,21 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
               <li class="nav-item">
                 <a href="{{ route('kostkontrakan.store') }}" class="nav-link">
                   <i class="nav-icon fas fa-building"></i>
                   <p>Kost atau Kontrakan</p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="{{ route('jasaangkut.store') }}" class="nav-link">
                   <i class="nav-icon fas fa-truck"></i>
                   <p>Jasa Angkut</p>
                 </a>
-              </li>
-              
+              </li>  
+                          
             </ul>
           </li>
 
@@ -133,11 +102,38 @@
           </li>
 
           <li class="nav-item">
-              <a href="{{ route('transaksi.store') }}" class="nav-link">
-                <i class="nav-icon fas fa-file-invoice"></i>
-                <p>Transaksi</p>
-              </a>
-          </li>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-duotone fa-chart-line"></i>
+              <p> 
+                Aktivitas Pengguna
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{ route('transaksi.store') }}" class="nav-link">
+                  <i class="nav-icon fas fa-file-invoice"></i>
+                  <p>Transaksi</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="{{ route('pesanjasa.store') }}" class="nav-link">
+                  <i class="nav-icon fas fa-truck"></i>
+                  <p>Pesan Jasa Angkut</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('pesankostkontrakan.store') }}" class="nav-link">
+                  <i class="nav-icon fas fa-building"></i>
+                  <p>Pesan Kost Atau Kontrakan</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>           
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -153,31 +149,24 @@
                   <i class="nav-icon fas fa-user"></i>
                   <p>Users</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lain - lain</p>
-                </a>
-              </li>
-              
+              </li> 
+              <li class="nav-item">            
+                  <a href="{{ route('logout') }}" class="nav-link" 
+                    onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                                 
+                    <i class="fas fa-power-off nav-icon "></i>
+                    <p>Logout</p>
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                  </form>
+
+               </li>            
             </ul>
           </li>
 
-          <li class="nav-item">            
-            <a href="{{ route('logout') }}" class="nav-link" 
-                onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                                 
-              <i class="fas fa-power-off nav-icon "></i>
-                <p>Logout</p>
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-
-          </li>
+          
 
         </ul>
       </nav>

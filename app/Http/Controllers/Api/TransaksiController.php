@@ -33,7 +33,7 @@ class TransaksiController extends Controller
         }
 
         $kode_payment = "INV/PYM/".now()->format('Y-m-d')."/".rand(100, 999);
-        $kode_trx = "INV/PYM/".now()->format('Y-m-d')."/".rand(100, 999);
+        $kode_trx = "INV/TRX/".now()->format('Y-m-d')."/".rand(100, 999);
         $kode_unik = rand(1000000, 9999999); 
         $status = "MENUNGGU";
         $created_att = now();

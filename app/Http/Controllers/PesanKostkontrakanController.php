@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pesankostkontrakan;
+use PDF;
 
 class PesanKostkontrakanController extends Controller
 {
@@ -19,11 +20,11 @@ class PesanKostkontrakanController extends Controller
     }
 
     public function index(){
-        $pesanMenunggu['listMenunggu'] = Pesankostkontrakan::whereStatus("MENUNGGU")->get();
+        $pesanMenunggu['listMenungguKost'] = Pesankostkontrakan::whereStatus("MENUNGGU")->get();
 
-        $pesanSelesai['listSelesai'] = Pesankostkontrakan::whereStatus("SELESAI")->orWhere("Status", "BATAL")->get();
+        $pesanSelesai['listSelesaiKost'] = Pesankostkontrakan::whereStatus("SUDAH DI KONFIRMASI")->orWhere("Status", "BATAL")->get();
 
-        return view ('pesan')->with($pesanMenunggu)->with($pesanSelesai);
+        return view ('pesankostkontrakan')->with($pesanMenunggu)->with($pesanSelesai);
     }
 
     public function batal($id){
@@ -31,6 +32,34 @@ class PesanKostkontrakanController extends Controller
         $pesanKostkontrakan->update([
             'status' => "BATAL",
         ]);
-        return redirect('pesanKostkontrakan');       
+        return redirect('pesankostkontrakan');       
+    }
+
+    public function confirm($id){
+        $pesanKostkontrakan = Pesankostkontrakan::where('id', $id)->first();
+        $pesanKostkontrakan->update([
+            'status' => "SUDAH DI KONFIRMASI",
+        ]);
+        return redirect('pesankostkontrakan');       
+    }
+
+    public function exportkost($id){
+        $data = Pesankostkontrakan::where('id',$id)->get();
+        
+        // where('id', $id)->first();
+       
+        // $pdf = PDF::loadview('dataPesanjasa-pdf',['pesanJasa'=>$pesanJasa]);
+        // $pdf->download('data.pdf');
+
+        // return redirect('pesanjasa');     
+        
+        
+        view()->share('data',$data);
+        $pdf = PDF::loadview('dataPesankostkontrakan-pdf');
+        return $pdf->download('data.pdf');    
+        
+        
+        
+        
     }
 }

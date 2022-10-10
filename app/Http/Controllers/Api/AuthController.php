@@ -74,7 +74,7 @@ class AuthController extends Controller
         if($usergeneral){
             return response()->json([
                 'success' => 1,
-                'message' => 'Selamat datang Register Berhasil',
+                'message' => 'Selamat datang Register Berhasil '.$usergeneral->name,
                 'usergenerals' => $usergeneral
             ]);
         }
