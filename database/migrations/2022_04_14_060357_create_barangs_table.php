@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->string('kode_input_barang');
+            $table->string('name_pemilik');
+            $table->double('notelfon');
             $table->string('name');
             $table->double('harga');
             $table->string('status')->nullable();

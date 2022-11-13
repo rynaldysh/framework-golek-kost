@@ -25,6 +25,8 @@ class BarangController extends Controller
         //nama, email, password        
         $validasi = Validator::make($request->all(), [
             'user_id' => 'required',
+            'name_pemilik' => 'required',
+            'notelfon' => 'required',
             'name' => 'required',
             'harga' => 'required',
             'lokasi' => 'required',

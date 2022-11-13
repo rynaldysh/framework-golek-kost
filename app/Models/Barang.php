@@ -10,6 +10,8 @@ class Barang extends Model
     protected $fillable = [ 
         'user_id',
         'kode_input_barang',
+        'name_pemilik',
+        'notelfon',
         'name',
         'nama_pemilik',
         'harga',
