@@ -102,6 +102,25 @@ class PesanKostkontrakanController extends Controller
         }        
     }
 
+    public function selesai($id){
+        $pesankostkontrakan = Pesankostkontrakan::where('id', $id)->first();
+        if ($pesankostkontrakan) {
+            //update data
+
+            $pesankostkontrakan->update([
+                'status' => "SELESAI",
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'pesankostkontrakan' => $pesankostkontrakan
+            ]);
+        } else {
+            return $this->error('Gagal memuat pesan kost atau kontrakan');
+        }        
+    }
+
     public function error($pasan){
         return response()->json([
             'success' => 0,

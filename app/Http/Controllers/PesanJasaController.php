@@ -36,6 +36,14 @@ class PesanJasaController extends Controller
         return redirect('pesanjasa');       
     }
 
+    public function selesai($id){
+        $pesanJasa = Pesanjasa::where('id', $id);
+        $pesanJasa->update([
+            'status' => "SELESAI",
+        ]);
+        return redirect('pesanjasa');       
+    }
+
     public function confirm($id){
         $pesanJasa = Pesanjasa::where('id', $id)->first();
         $pesanJasa->update([

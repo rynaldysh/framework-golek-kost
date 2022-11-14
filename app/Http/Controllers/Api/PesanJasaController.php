@@ -106,6 +106,25 @@ class PesanJasaController extends Controller
         }        
     }
 
+    public function selesai($id){
+        $pesanjasa = Pesanjasa::where('id', $id)->first();
+        if ($pesanjasa) {
+            //update data
+
+            $pesanjasa->update([
+                'status' => "SELESAI",
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'pesanjasa' => $pesanjasa
+            ]);
+        } else {
+            return $this->error('Gagal memuat pesan jasa');
+        }        
+    }
+
     public function error($pasan){
         return response()->json([
             'success' => 0,
