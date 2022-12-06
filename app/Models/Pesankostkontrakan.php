@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pesankostkontrakan extends Model
 {
-    protected $fillable = ['user_id', 'kode_pesan_kostkontrakan',
+    protected $fillable = ['usergeneral_id', 'kode_pesan_kostkontrakan',
     'status', 'name', 'phone', 'detail_lokasi','deskripsi', 
     'created_att', 'tanggal'];
 
@@ -16,6 +16,6 @@ class Pesankostkontrakan extends Model
     }
 
     public function user(){
-        return $this->belongsTo(Usergeneral::class, "user_id", "id");
+        return $this->belongsTo(Usergeneral::class, "usergeneral_id", "id");
     }
 }

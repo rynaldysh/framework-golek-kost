@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    protected $fillable = ['user_id', 'kode_payment',
+    protected $fillable = ['usergeneral_id', 'kode_payment',
     'kode_trx', 'total_item', 'total_harga', 'kode_unik',
-    'status', 'resi', 'kurir', 'name', 'phone', 'detail_lokasi', 'metode',
-    'deskripsi', 'created_att', 'expired_at', 'jasa_pengiriman', 'ongkir', 'total_transfer',
-    'bank', 'buktiTransfer'];
+    'status', 'name', 'phone', 'detail_lokasi',
+    'created_att', 'expired_at', 'jasa_pengiriman', 'ongkir', 'total_transfer',
+    'bank', 'bukti_transfer'];
 
     public function details(){
         return $this->hasMany(TransaksiDetail::class, "transaksi_id", "id");
     }
 
     public function user(){
-        return $this->belongsTo(Usergeneral::class, "user_id", "id");
+        return $this->belongsTo(Usergeneral::class, "usergeneral_id", "id");
     }
 }

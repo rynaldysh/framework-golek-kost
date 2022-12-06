@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
+            $table->integer('usergeneral_id')->unsigned();
             $table->string('kode_input_barang');
             $table->string('name_pemilik');
             $table->double('notelfon');
@@ -23,10 +23,14 @@ return new class extends Migration
             $table->double('harga');
             $table->string('status')->nullable();
             $table->string('lokasi');
-            $table->string('nama_pemilik')->nullable();
             $table->longText('deskripsi');
             $table->string('image')->nullable();
-            $table->string('created_att')->nullable();
+            $table->string('created_att')->nullable();            
+            $table->string('name_pembeli')->nullable();
+            $table->double('phone_pembeli')->nullable();
+            $table->string('jasa_pengiriman')->nullable();
+            $table->string('detail_lokasi')->nullable();
+            $table->double('total_transfer')->nullable();
             $table->timestamps();
         });
     }

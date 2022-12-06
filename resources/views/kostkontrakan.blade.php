@@ -108,6 +108,19 @@
                         <input type="text" class="form-control" id="jumlahHarga1" placeholder="Harga" name="harga">
                       </div>  
                     </div>
+                    <div class="col-sm-6">                                 
+                      <div class="form-group">
+                        <label for="jumlahHarga">Rasio Pembayaran</label>
+                        <select class="form-control" name="rasiobayar">
+                            <option >- Pilih -</option>
+                            <option >Tahun</option>
+                            <option >Bulan</option>                        
+                          </select>
+                      </div>  
+                    </div>
+                  </div>
+
+                  <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Mayoritas</label>
@@ -116,14 +129,15 @@
                             <option >Mahasiswa</option>
                             <option >Pegawai</option>
                             <option >Campuran</option>                          
-                        </select>
+                          </select>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="namaLokasi">Nama Pengelola</label>
-                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Nama Pengelola" name="pengelola">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="namaLokasi">Nama Pengelola</label>
+                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Nama Pengelola" name="pengelola">
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="row">

@@ -16,7 +16,7 @@ class PesanKostkontrakanController extends Controller
     public function store(Request $request){
         //nama, email, password
         $validasi = Validator::make($request->all(), [
-            'user_id' => 'required',
+            'usergeneral_id' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'tanggal' => 'required'

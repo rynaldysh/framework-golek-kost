@@ -24,7 +24,7 @@ class BarangController extends Controller
     public function uploadbarang(Request $request){
         //nama, email, password        
         $validasi = Validator::make($request->all(), [
-            'user_id' => 'required',
+            'usergeneral_id' => 'required',
             'name_pemilik' => 'required',
             'notelfon' => 'required',
             'name' => 'required',
@@ -126,7 +126,7 @@ class BarangController extends Controller
             //update data
 
             $barang->update([
-                'status' => "TERJUAL",
+                'status' => "HABIS",
             ]);
 
             return response()->json([

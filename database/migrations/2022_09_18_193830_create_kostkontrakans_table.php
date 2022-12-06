@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->double('harga');
+            $table->string('rasiobayar');
             $table->string('lokasi');            
             $table->string('pengelola');
             $table->double('sisakamar');

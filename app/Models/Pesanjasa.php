@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pesanjasa extends Model
 {
     protected $fillable = [
-    'user_id',
+    'usergeneral_id',
     'kode_pesan_jasa',
     'status',
     'name',
@@ -26,7 +26,7 @@ class Pesanjasa extends Model
     }
 
     public function user(){
-        return $this->belongsTo(Usergeneral::class, "user_id", "id");
+        return $this->belongsTo(Usergeneral::class, "usergeneral_id", "id");
     }
 }
 

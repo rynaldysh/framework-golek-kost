@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('pesanjasas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('usergeneral_id')->unsigned();
             $table->string('kode_pesan_jasa');
             $table->string('status')->nullable();
             $table->string('name')->nullable();

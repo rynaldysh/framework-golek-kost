@@ -11,6 +11,7 @@ class Kostkontrakan extends Model
         'name',
         'pengelola',
         'harga',
+        'rasiobayar',
         'mayoritas',
         'lokasi',
         'sisakamar',

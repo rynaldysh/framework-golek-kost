@@ -16,7 +16,7 @@ class TransaksiController extends Controller
     public function store(Request $request){
         //nama, email, password
         $validasi = Validator::make($request->all(), [
-            'user_id' => 'required',
+            'usergeneral_id' => 'required',
             'total_item' => 'required',
             'total_harga' => 'required',
             'name' => 'required',
@@ -46,7 +46,10 @@ class TransaksiController extends Controller
             'status' => $status,
             'created_att' => $created_att,
             'expired_at' => $expired_at,
-        ]);
+        ]);       
+        
+        \DB::beginTransaction();
+        $barang = Barang::create($dataTransaksi);
 
         \DB::beginTransaction();
         $transaksi = Transaksi::create($dataTransaksi);
@@ -134,7 +137,7 @@ class TransaksiController extends Controller
 
             $transaksi->update([
                 'status' => "DIBAYAR",
-                'buktiTransfer' => $fileName
+                'bukti_transfer' => $fileName
             ]);
 
             return response()->json([
@@ -151,6 +154,35 @@ class TransaksiController extends Controller
         //     'message' => 'Berhasil upload bukti transfer',
         //     'image' => $fileName
         // ]);
+    }
+
+    public function proses($id){
+        // $transaksi = Transaksi::with(['details.produk', 'user'])->where('id', $id)->first();
+        $transaksi = Transaksi::where('id', $id)->first();
+        if ($transaksi) {
+            //update data
+
+            $transaksi->update([
+                'status' => "PROSES",
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'transaksi' => $transaksi
+            ]);
+        } else {
+            return $this->error('Gagal memuat transaksi');
+        }        
+    }
+
+    public function index(){
+        $transaksi = Transaksi::all();
+        return response()->json([
+            'success' => 1,
+            'message' => 'Get transaksi berhasil',
+            'transaksis' => $transaksi
+        ]);
     }
 
     public function error($pasan){
