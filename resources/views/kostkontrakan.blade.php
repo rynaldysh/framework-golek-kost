@@ -86,18 +86,28 @@
                 @csrf
                 <div class="modal-body">
 
-                <div class="row">
+                <div class="form-group">
+                  <label for="namaMitra">Nama Kost atau Kontrakan</label>
+                  <input type="text" class="form-control" id="namaMitra" placeholder="Nama Kost atau Kontrakan" name="name">
+                </div>
+                <div class="row">                  
                     <div class="col-sm-6">                                 
                       <div class="form-group">
-                        <label for="namaMitra">Nama Kost atau Kontrakan</label>
-                        <input type="text" class="form-control" id="namaMitra" placeholder="Nama Kost atau Kontrakan" name="name">
+                        <label for="namaMitra">Nomor Telfon</label>
+                        <input type="text" class="form-control" id="namaMitra" placeholder="Nomor WhatsApp" name="nomortelfon">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6">                                 
                       <div class="form-group">
-                        <label for="namaLokasi">Lokasi</label>
-                        <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
-                      </div>
+                        <label for="jumlahHarga">Lokasi</label>
+                        <select class="form-control" name="lokasi">
+                            <option >- Pilih -</option>
+                            <option >Sleman</option>
+                            <option >Bantul</option>
+                            <option >Gunung Kidul</option>
+                            <option >Kota Yogyakarta</option>                        
+                          </select>
+                      </div>  
                     </div>
                   </div>         
                   

@@ -9,6 +9,7 @@ class Jasaangkut extends Model
 {
     protected $fillable = [
         'name',
+        'nomortelfon',
         'harga',
         'deskripsi',
         'lokasi',

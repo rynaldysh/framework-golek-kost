@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kostkontrakans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('nomortelfon');
             $table->double('harga');
             $table->string('rasiobayar');
             $table->string('lokasi');            

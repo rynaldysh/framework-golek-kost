@@ -83,6 +83,11 @@
                     <label for="namaMitra">Nama Jasa Angkut</label>
                     <input type="text" class="form-control" id="namaMitra" placeholder="Nama Jasa Angkut" name="name">
                   </div>
+
+                  <div class="form-group">
+                    <label for="namaMitra">Nomor Telfon</label>
+                    <input type="text" class="form-control" id="namaMitra" placeholder="Nomor WhatsApp" name="nomortelfon">
+                  </div>
                   
                   <div class="form-group">
                     <label for="jumlahHarga">Harga</label>
@@ -90,9 +95,15 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="namaLokasi">Lokasi</label>
-                    <input type="text" class="form-control" id="namaLokasi1" placeholder="Masukkan Lokasi" name="lokasi">
-                  </div>
+                        <label for="jumlahHarga">Lokasi</label>
+                        <select class="form-control" name="lokasi">
+                            <option >- Pilih -</option>
+                            <option >Sleman</option>
+                            <option >Bantul</option>
+                            <option >Gunung Kidul</option>
+                            <option >Kota Yogyakarta</option>                        
+                        </select>
+                  </div>  
 
                   <div class="form-group">
                     <label for="inputDeskripsi">Deskripsi</label>

@@ -34,6 +34,9 @@ Route::post('/barang/dikirim/{id}', [App\Http\Controllers\Api\TransaksiControlle
 
 Route::get('/kostkontrakan', [App\Http\Controllers\Api\KostKontrakanController::class, 'index']);
 Route::get('/kostkontrakan/sleman/{lokasi}', [App\Http\Controllers\Api\KostKontrakanController::class, 'sleman']);
+Route::get('/kostkontrakan/kotaYogyakarta/{lokasi}', [App\Http\Controllers\Api\KostKontrakanController::class, 'kotaYogyakarta']);
+Route::get('/kostkontrakan/bantul/{lokasi}', [App\Http\Controllers\Api\KostKontrakanController::class, 'bantul']);
+Route::get('/kostkontrakan/gunungKidul/{lokasi}', [App\Http\Controllers\Api\KostKontrakanController::class, 'gunungKidul']);
 Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class, 'index']);
 Route::get('/transaksipenjualan', [App\Http\Controllers\Api\TransaksiController::class, 'index']);
 

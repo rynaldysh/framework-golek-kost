@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('jasaangkuts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('nomortelfon');
             $table->string('harga');
             $table->string('lokasi');
             $table->longtext('deskripsi');

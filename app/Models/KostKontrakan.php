@@ -9,6 +9,7 @@ class Kostkontrakan extends Model
 {
     protected $fillable = [
         'name',
+        'nomortelfon',
         'pengelola',
         'harga',
         'rasiobayar',
