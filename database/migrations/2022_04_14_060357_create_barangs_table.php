@@ -25,12 +25,7 @@ return new class extends Migration
             $table->string('lokasi');
             $table->longText('deskripsi');
             $table->string('image')->nullable();
-            $table->string('created_att')->nullable();            
-            $table->string('name_pembeli')->nullable();
-            $table->double('phone_pembeli')->nullable();
-            $table->string('jasa_pengiriman')->nullable();
-            $table->string('detail_lokasi')->nullable();
-            $table->double('total_transfer')->nullable();
+            $table->string('created_att')->nullable();   
             $table->timestamps();
         });
     }

@@ -17,4 +17,16 @@ class KostKontrakanController extends Controller
             'kostkontrakans' => $kostkontrakan
         ]);
     }
+
+    public function sleman(){
+        // dd($requset->all());die();
+        $kostkontrakan = Kostkontrakan::where('lokasi','sleman')->get();
+        return response()->json([
+            'success' => 1,
+            'message' => 'Get kost kontrakan berhasil',
+            'kostkontrakans' => $kostkontrakan
+        ]);
+    }
+
+    
 }

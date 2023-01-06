@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('detail_lokasi')->nullable();
+            $table->string('kurir')->nullable();
             $table->string('jasa_pengiriman');
             $table->integer('ongkir')->unsigned();
             $table->bigInteger('total_transfer')->unsigned();

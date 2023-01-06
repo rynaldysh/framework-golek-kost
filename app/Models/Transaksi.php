@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     protected $fillable = ['usergeneral_id', 'kode_payment',
-    'kode_trx', 'total_item', 'total_harga', 'kode_unik',
+    'kode_trx', 'total_harga', 'kode_unik',
     'status', 'name', 'phone', 'detail_lokasi',
-    'created_att', 'expired_at', 'jasa_pengiriman', 'ongkir', 'total_transfer',
-    'bank', 'bukti_transfer'];
+    'created_att', 'expired_at', 'jasa_pengiriman', 'kurir', 'ongkir', 'total_transfer',
+    'bank', 'bukti_transfer', 'total_item'];
 
     public function details(){
         return $this->hasMany(TransaksiDetail::class, "transaksi_id", "id");

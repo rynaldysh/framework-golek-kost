@@ -30,8 +30,10 @@ Route::post('/barang/uploadbaranggambar/{id}', [App\Http\Controllers\Api\BarangC
 Route::get('/barang/history/{id}', [App\Http\Controllers\Api\BarangController::class, 'history']);
 Route::post('/barang/terjual/{id}', [App\Http\Controllers\Api\BarangController::class, 'terjual']);
 Route::post('/barang/proses/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'proses']);
+Route::post('/barang/dikirim/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'dikirim']);
 
 Route::get('/kostkontrakan', [App\Http\Controllers\Api\KostKontrakanController::class, 'index']);
+Route::get('/kostkontrakan/sleman/{lokasi}', [App\Http\Controllers\Api\KostKontrakanController::class, 'sleman']);
 Route::get('/jasaangkut', [App\Http\Controllers\Api\JasaAngkutController::class, 'index']);
 Route::get('/transaksipenjualan', [App\Http\Controllers\Api\TransaksiController::class, 'index']);
 
@@ -39,6 +41,7 @@ Route::post('/checkout', [App\Http\Controllers\Api\TransaksiController::class, '
 Route::get('/checkout/user/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'history']);
 Route::post('/checkout/batal/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'batal']);
 Route::post('/checkout/upload/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'upload']);
+Route::post('/checkout/selesai/{id}', [App\Http\Controllers\Api\TransaksiController::class, 'selesai']);
 
 Route::post('/pesanjasa', [App\Http\Controllers\Api\PesanJasaController::class, 'store']);
 Route::get('/pesanjasa/user/{id}', [App\Http\Controllers\Api\PesanJasaController::class, 'history']);
